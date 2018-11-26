@@ -14,7 +14,7 @@ int main(){
 	int m; //ile procesorów
 	
 	fstream in;
-	in.open("test.in", fstream::in);
+	in.open("20proc.txt", fstream::in);
 	in>>n>>m;
 	vector<int> p[m];
 	int s=0;
@@ -38,7 +38,7 @@ int main(){
 			max=x;
 		}
 	}
-	cout<<"Idle time:\t"<<sum(p[max])*m-s<<endl;
+	cout<<"Max time:\t"<<sum(p[max])<<endl;
 	
 	for(int x=0;x<m;x++){
 		cout<<x+1<<":";
