@@ -77,11 +77,12 @@ bool exchange(P& a, P& b){
 int main(){
 	int n; //ile procesów
 	int m; //ile procesorów
+	int w;
 	srand(time(NULL));
 	
 	fstream in;
 	in.open("dane.in", fstream::in);
-	in>>n>>m;
+	in>>m>>n;
 	P p[m];
 	int a;
 	while(n--){
@@ -94,8 +95,9 @@ int main(){
 		}
 		p[min].add(a);
 	}
+	in>>w;
 	
-	int max,k;
+	int max=findmax(p,m),k;
 	string line;
 	while(getline(cin,line)){
 		if(line==""){
@@ -112,7 +114,17 @@ int main(){
 		int b=rand()%(m-1);
 		if(b>=a)b++;
 		cout<<"swapping "<<a+1<<" and "<<b+1<<endl;
-		exchange(p[a],p[b]);
+		if(exchange(p[a],p[b])){
+			cout<<"Good match on: "<<a+1<<" and "<<b+1<<endl;
+			if(p[findmax(p,m)].sum() < max){
+				cout<<"New best: "<<max<<endl;
+				max=p[findmax(p,m)].sum();
+				if(max==w){
+					cout<<"Done!"<<endl;
+					break;
+				}
+			}
+		}
 	}
 	
 	return 0;

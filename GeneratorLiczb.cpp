@@ -53,9 +53,9 @@ void generator(int n, int m, int wynik[]){
 int main(){
 srand(time(NULL));
 
-int n=3; //ilosc elementow
-int m=10; //suma elementow
-int r=15; //czas pracy procesora
+int n=8; //ilosc elementow
+int m=20; //suma elementow
+int r=30; //czas pracy procesora
 
 fstream file("dane.in", ios::out);
 
@@ -107,6 +107,7 @@ for (int i=0;i<=n-1;i++){
 
 delete procesy;
 delete tmp;
+file<<r; //JEB£EM NA KONIEC WYNIK, ¯EBYM MÓG£ GO SPRAWDZIÆ W MIÊDZYCZASIE =============================================================================
 file.close();
 return 0;
 
