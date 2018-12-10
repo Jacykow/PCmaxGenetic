@@ -96,6 +96,7 @@ int main(){
 		p[min].add(a);
 	}
 	in>>w;
+	cout<<"Wczytane"<<endl;
 	
 	int max=findmax(p,m),k;
 	string line;

@@ -53,9 +53,9 @@ void generator(int n, int m, int wynik[]){
 int main(){
 srand(time(NULL));
 
-int n=1000; //ilosc elementow
-int m=10000; //suma elementow
-int r=10100; //czas pracy procesora
+int n=25; //ilosc elementow
+int m=500; //suma elementow
+int r=1000; //czas pracy procesora
 
 fstream file("dane.in", ios::out);
 
@@ -71,7 +71,7 @@ int *tmp=new int[n];
 
 generator(n,m,procesy);
 sort(procesy, procesy+n-1);
-cout <<"Ilosci zadan na kazdy procesor: "<<endl;
+//cout <<"Ilosci zadan na kazdy procesor: "<<endl;
 
 for (int i=0;i<=n-1;i++){
 	if (i==0) tmp[i] = procesy[i];
@@ -79,7 +79,7 @@ for (int i=0;i<=n-1;i++){
 	else tmp[i] = (procesy[i]-procesy[i-1]);
 }
 for (int i=0;i<=n-1;i++)
-	cout <<"["<<i<<"]"<<"<"<<tmp[i]<<">"<<endl;
+	//cout <<"["<<i<<"]"<<"<"<<tmp[i]<<">"<<endl;
 	
 for (int i=0;i<=n-1;i++){
 	int *podzialki = new int[tmp[i]];
@@ -89,7 +89,7 @@ for (int i=0;i<=n-1;i++){
 		generator(tmp[i],r,podzialki);
 		sort(podzialki, podzialki+tmp[i]-1);
 	}
-	cout <<"Wylosowane czasy procesow dla procesora "<<i<<endl;
+	//cout <<"Wylosowane czasy procesow dla procesora "<<i<<endl;
 
 	for (int j=0;j<=tmp[i]-1;j++){
 		if (j==tmp[i]-1) podzialki[j] = r;
@@ -99,7 +99,7 @@ for (int i=0;i<=n-1;i++){
 		else tmp2[j] = (podzialki[j]-podzialki[j-1]);
 	}
 	for (int j=0;j<=tmp[i]-1;j++){
-		cout <<"["<<j<<"]"<<"<"<<tmp2[j]<<">"<<endl;
+		//cout <<"["<<j<<"]"<<"<"<<tmp2[j]<<">"<<endl;
 		file << tmp2[j] <<endl;
 	}
 	delete[] podzialki;
