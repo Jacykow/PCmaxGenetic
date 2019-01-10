@@ -8,7 +8,7 @@
 using namespace std;
 
 // SETTINGS
-string inputFile="m50n200.txt";
+string inputFile="m50n1000.txt";
 float avgMutations=6;
 int populationSize=50;
 
@@ -86,11 +86,8 @@ class Gene{
 			f.append(inputFile);
 			out.open(f, fstream::out);
 			
-			out<<"MAX: "<<max<<endl;
-			
 			int s=0;
 			int k=0;
-			out<<k<<":\t";
 			for(int x=0;x<order.size();x++){
 				if(s+order[x]<=max){
 					out<<order[x]<<" ";
@@ -103,13 +100,13 @@ class Gene{
 					if(order[x]>max){
 						return;
 					}
-					out<<"=== "<<s<<endl;
+					out<<0<<endl;
 					s=order[x];
 					k++;
-					out<<k<<":\t"<<s<<" ";
+					out<<s<<" ";
 				}
 			}
-			out<<"=== "<<s<<endl;
+			out<<endl;
 			
 			out.close();
 		}

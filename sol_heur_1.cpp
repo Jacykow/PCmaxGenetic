@@ -81,7 +81,8 @@ int main(){
 	srand(time(NULL));
 	
 	fstream in;
-	in.open("dane.in", fstream::in);
+	//in.open("m25.txt", fstream::in);
+	in.open("m50.txt", fstream::in);
 	in>>m>>n;
 	P p[m];
 	int a;
