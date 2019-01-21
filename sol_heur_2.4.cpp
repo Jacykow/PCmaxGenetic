@@ -8,8 +8,8 @@
 using namespace std;
 
 // SETTINGS
-string inputFile="m50n200.txt";
-float mutationRate=0.002f;
+string inputFile="m50n1000.txt";
+float mutationRate=0.001f;
 int populationSize=1000;
 
 int processes; //processes
@@ -66,12 +66,6 @@ int fitness(vector<int>& tab, int max, int processors){
 			}
 		}
 	}
-	/*
-	s=0;
-	for(;x<tab.size();x++){
-		s+=tab[x];
-	}
-	*/
 	return tab.size()-x;
 }
 
@@ -101,13 +95,14 @@ int randomFromDist(int max){
 }
 
 void mutate(vector<int>& tab, float rate){
-	int mutations = (int)(rate * (float)tab.size()* 0.5f) + 1;
-	while(mutations--){
+	int mutations = (int)(rate * (float)tab.size()) + 1;
+	do{
 		int a = tab.size() - randomFromDist(tab.size()) - 1;
 		int b = tab.size() - randomFromDist(tab.size()-1) - 1;
 		b -= (b <= a);
 		swap(tab[a],tab[b]);
-	}
+		mutations /= 2;
+	} while(rand()%tab.size() < mutations + 1);
 }
 
 void show(gene& g, bool save){
@@ -261,7 +256,7 @@ int main(){
 			cin>>skip;
 		}
 		if(line == "b"){
-			show(population[0],true);
+			show(population[0],false);
 		}
 		if(line == "sa"){
 			showAll(population);
