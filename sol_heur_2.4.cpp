@@ -8,7 +8,7 @@
 using namespace std;
 
 // SETTINGS
-string inputFile="m50n1000.txt";
+string inputFile="m10n200.txt";
 float mutationRate=0.001f;
 int populationSize=1000;
 

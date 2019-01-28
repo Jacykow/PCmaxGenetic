@@ -5,14 +5,6 @@
 GEN <generation number that achieved said score> <score>/<best score known>
 <generations per second>
 
-m50n200
-GEN 41000 --> 979/979
-~150 GEN/s
-
-m10n200
-GEN 5000 --> 11000/10999
-~150 GEN/s
-
 m25
 GEN 48500 --> 3459/3459
 ~150 GEN/s
@@ -22,5 +14,13 @@ GEN 15500 --> 151/150
 ~250 GEN/s
 
 m50n1000
-GEN X --> X/9764
+GEN 3400 --> 9793/9764
 ~30 GEN/s
+
+m50n200
+GEN 41000 --> 979/979
+~150 GEN/s
+
+m10n200
+GEN 5000 --> 11000/10999
+~150 GEN/s
